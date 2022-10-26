@@ -1,12 +1,11 @@
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+apiVersion: v1
+kind: Pod
 metadata:
-  name: read-only
-  namespace: deafult
-rules:
-- apiGroups: [""]
-  resources: ["namespaces"]
-  verbs: ["get", "watch", "list"]
-- apiGroups: ["*"]
-  resources: ["configmaps", "pods", "podtemplates", "secrets", "serviceaccounts", "services", "deployments", "horizontalpodautoscalers", "networkpolicies", "statefulsets", "replicasets", "resourcequotas"]
-  verbs: ["get", "watch", "list"]
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      imagePullPolicy: IfNotPresent
