@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: podinfo
   labels:
-    name: test
+    name: test2
 spec:
   minReadySeconds: 3
   revisionHistoryLimit: 5
